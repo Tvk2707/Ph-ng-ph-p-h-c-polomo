@@ -1,0 +1,121 @@
+Hãy tạo một ứng dụng quản lý thời gian (Time Management App) hoàn chỉnh bằng HTML, CSS và JavaScript, kết hợp giữa To-do List và Pomodoro Timer, có thể sử dụng thực tế.
+
+## 1. Giao diện (UI/UX)
+
+* Thiết kế hiện đại, tối giản, dễ dùng (inspired by Notion/Todoist)
+* Hỗ trợ Dark mode / Light mode (có nút toggle)
+* Responsive (desktop + mobile)
+* Layout gồm 3 phần chính:
+
+  1. Task (To-do list)
+  2. Pomodoro Timer
+  3. Thống kê (Statistics)
+
+---
+
+## 2. Chức năng To-do List
+
+* Thêm công việc (task)
+* Sửa / Xóa task
+* Đánh dấu hoàn thành (checkbox)
+* Phân loại task (ví dụ: Học tập, Công việc, Cá nhân)
+* Lưu dữ liệu bằng localStorage (không bị mất khi reload)
+* Tìm kiếm task theo tên
+* Lọc task:
+
+  * All
+  * Completed
+  * Pending
+
+---
+
+## 3. Pomodoro Timer
+
+* Mặc định:
+
+  * 25 phút làm việc
+  * 5 phút nghỉ
+* Có thể chỉnh thời gian
+* Nút:
+
+  * Start / Pause / Reset
+* Hiển thị countdown rõ ràng
+* Khi hết giờ:
+
+  * Có âm thanh thông báo
+  * Hiển thị thông báo (notification)
+
+---
+
+## 4. Kết hợp To-do + Pomodoro
+
+* Cho phép chọn 1 task để focus
+* Khi bấm Start Pomodoro:
+  → gắn với task đang chọn
+* Khi hoàn thành 1 Pomodoro:
+  → tăng số lần "focus session" cho task đó
+
+---
+
+## 5. Thống kê (Statistics)
+
+* Hiển thị:
+
+  * Tổng số task đã hoàn thành
+  * Tổng số Pomodoro đã làm
+  * Biểu đồ đơn giản (có thể dùng chart.js hoặc JS thuần)
+* Hiển thị thời gian học theo ngày
+
+---
+
+## 6. Hiệu ứng & UX nâng cao
+
+* Animation khi:
+
+  * Thêm task
+  * Hoàn thành task
+* Timer có hiệu ứng (progress circle hoặc thanh tiến trình)
+* Hover effect mượt
+* Transition khi chuyển chế độ Dark/Light
+
+---
+
+## 7. JavaScript (Yêu cầu kỹ thuật)
+
+* Code rõ ràng, chia module:
+
+  * taskManager
+  * timer
+  * UI handler
+* Sử dụng:
+
+  * localStorage
+  * event listeners
+  * DOM manipulation
+* Có comment giải thích
+
+---
+
+## 8. Cấu trúc file
+
+* index.html
+* style.css
+* script.js
+
+---
+
+## 9. Nâng cao (bonus nếu có thể)
+
+* Drag & drop task
+* Âm thanh nền khi focus (lofi)
+* Lưu lịch sử Pomodoro
+* Export dữ liệu (JSON)
+
+---
+
+## 10. Mục tiêu
+
+* Ứng dụng phải chạy được ngay khi mở file
+* Code sạch, dễ hiểu, có thể dùng làm portfolio
+
+Hãy viết đầy đủ code cho từng file.

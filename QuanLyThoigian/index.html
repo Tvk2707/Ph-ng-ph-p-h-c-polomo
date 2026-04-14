@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quản lý thời gian</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Time Management App</p>
+        <h1>Quản lý thời gian</h1>
+      </div>
+      <div class="controls-group">
+        <button id="themeToggle" class="icon-btn" aria-label="Chuyển đổi giao diện">🌙</button>
+      </div>
+    </header>
+
+    <main class="grid-layout">
+      <section class="panel panel-tasks">
+        <div class="panel-header">
+          <div>
+            <h2>Task List</h2>
+            <p>Thêm, quản lý và chọn nhiệm vụ để tập trung.</p>
+          </div>
+        </div>
+
+        <div class="task-add card">
+          <input id="taskTitle" type="text" placeholder="Nhập tên task..." />
+          <div class="task-meta-inputs">
+            <select id="taskCategory">
+              <option value="Học tập">Học tập</option>
+              <option value="Công việc">Công việc</option>
+              <option value="Cá nhân">Cá nhân</option>
+            </select>
+            <input id="taskDeadline" type="date" />
+          </div>
+          <button id="addTaskBtn" class="primary-btn">Thêm task</button>
+          <div id="feedback" class="feedback" aria-live="polite"></div>
+        </div>
+
+        <div class="task-actions card">
+          <input id="taskSearch" type="search" placeholder="Tìm kiếm task..." />
+          <div class="filter-buttons" role="group">
+            <button data-filter="all" class="active">All</button>
+            <button data-filter="completed">Completed</button>
+            <button data-filter="pending">Pending</button>
+          </div>
+        </div>
+
+        <div id="taskList" class="task-list"></div>
+      </section>
+
+      <section class="panel panel-timer">
+        <div class="panel-header">
+          <div>
+            <h2>Pomodoro Timer</h2>
+            <p>Tập trung vào task đã chọn và theo dõi phiên làm việc.</p>
+          </div>
+        </div>
+
+        <div class="timer-card card">
+          <div class="timer-ring">
+            <svg viewBox="0 0 120 120">
+              <circle class="ring-bg" cx="60" cy="60" r="52" />
+              <circle id="progressCircle" class="ring-progress" cx="60" cy="60" r="52" />
+            </svg>
+            <div class="timer-display">
+              <span id="timerLabel">Work</span>
+              <strong id="timerValue">25:00</strong>
+              <small id="selectedTaskLabel">Chưa chọn task</small>
+            </div>
+          </div>
+
+          <div class="timer-controls">
+            <button id="startBtn" class="primary-btn">Start</button>
+            <button id="pauseBtn">Pause</button>
+            <button id="resetBtn">Reset</button>
+          </div>
+
+          <div class="duration-inputs">
+            <label>
+              Work
+              <input id="workDuration" type="number" min="1" max="60" value="25" />
+              phút
+            </label>
+            <label>
+              Break
+              <input id="breakDuration" type="number" min="1" max="30" value="5" />
+              phút
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel panel-stats">
+        <div class="panel-header">
+          <div>
+            <h2>Thống kê</h2>
+            <p>Tracking hiệu suất và số phiên Pomodoro.</p>
+          </div>
+        </div>
+
+        <div class="stats-card card stats-grid">
+          <div class="stat-box">
+            <span class="stat-number" id="completedTasksValue">0</span>
+            <span class="stat-label">Task hoàn thành</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-number" id="pomodoroCountValue">0</span>
+            <span class="stat-label">Pomodoro đã làm</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-number" id="focusTaskValue">0</span>
+            <span class="stat-label">Session hiện tại</span>
+          </div>
+        </div>
+
+        <div class="chart-card card">
+          <div class="chart-header">
+            <h3>Lịch sử Pomodoro</h3>
+            <p>Thời gian hoàn thành mỗi ngày</p>
+          </div>
+          <div id="chartBars" class="chart-bars"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <template id="taskTemplate">
+    <article class="task-card" draggable="true">
+      <div class="task-left">
+        <label class="checkbox-wrapper">
+          <input type="checkbox" class="task-checkbox" />
+          <span class="custom-checkbox"></span>
+        </label>
+        <div>
+          <p class="task-title"></p>
+          <span class="task-meta"></span>
+        </div>
+      </div>
+      <div class="task-actions">
+        <button class="small-btn focus-btn">Focus</button>
+        <button class="small-btn edit-btn">Edit</button>
+        <button class="small-btn delete-btn">Delete</button>
+      </div>
+    </article>
+  </template>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
